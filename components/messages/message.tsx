@@ -104,7 +104,7 @@ export const Message: FC<MessageProps> = ({
       input.focus()
       input.setSelectionRange(input.value.length, input.value.length)
     }
-  }, [isEditing])
+  }, [isEditing, message.content])
 
   const MODEL_DATA = [...LLM_LIST, ...availableLocalModels].find(
     llm => llm.modelId === message.model
@@ -153,7 +153,7 @@ export const Message: FC<MessageProps> = ({
                   selectedAssistantImage ? (
                     <Image
                       className="rounded"
-                      src={selectedAssistantImage || ""}
+                      src={selectedAssistantImage}
                       alt="assistant image"
                       height={ICON_SIZE}
                       width={ICON_SIZE}
